@@ -23,11 +23,17 @@
 
                      <h2> {{announcement.position}}</h2>
                      Company: {{announcement.company}}
-                     <div>
-                        <i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i>
-                     </div>
-                    
-                    
+                     
+                      <div class="react-box">
+                        <div  v-if="!applied.includes(index +1)" class="btn-apply">
+                            <button @click="applyYourPreferedJob(index)">Candidati facilmente</button>
+                          </div>
+                          <div v-if="applied.includes(index +1)" class="applied">
+                              <button>Candidatura inviata</button>
+                          </div>
+                          <div class="icon-box"><i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i> </div> 
+                      </div>
+                      
                     </div>
                     <ul class="tabella">
 
@@ -50,10 +56,7 @@
     
     
                     </ul>
-                    <div v-if="!applied.includes(index +1)">
-                      <button @click="applyYourPreferedJob(index)">APPLY</button>
-                    </div>
-                    <div v-if="applied.includes(index +1)">Applied</div>
+                    
                </div>
             </div>
 

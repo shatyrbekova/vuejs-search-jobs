@@ -15,9 +15,35 @@
     padding:12px;
 
 }
-.announcement-box{
-    /* border: 2px solid lightgray;
-   */
+.react-box{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+   
+}
+.icon-box{
+    margin-left: 15px;
+    height: 40px;
+    line-height: 40px;
+    width: 30px;
+    border-radius: 10px;
+    text-align: center;
+    background: rgb(236, 232, 232);
+}
+button{
+    cursor: pointer;
+    height: 40px;
+    width:150px;
+    border-radius:12px;
+    color: white;
+    box-shadow: none;
+    border:none;
+}
+.btn-apply button{
+    background-color: #2164f4 ;
+}
+.applied button{
+  background-color: #ff6600;
 }
 .tabella{
     margin-top: 15px;
