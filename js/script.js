@@ -91,6 +91,7 @@ new Vue({
             return "fas fa-star"  ;     //da zero, invece la lista o l'id in esame inizia da 1. 
                                        //in questo modo, la lista inizierà da 1, ma NON da 0. 
         }else{
+            this.starred.splice(index)
             return "far fa-star";
         }
         

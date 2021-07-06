@@ -23,8 +23,11 @@
 
                      <h2> {{announcement.position}}</h2>
                      Company: {{announcement.company}}
-                     <i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i>
-                     <button @click="applyYourPreferedJob(index)">APPLY</button>
+                     <div>
+                        <i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i>
+                        <button @click="applyYourPreferedJob(index)">APPLY</button>
+                     </div>
+                    
                     
                     </div>
                     <ul class="tabella">
