@@ -90,6 +90,8 @@ new Vue({
             this.starred.push(index +1) ;//aggiungere +1 perchè array di oggetti inizia                             
             return "fas fa-star"  ;     //da zero, invece la lista o l'id in esame inizia da 1. 
                                        //in questo modo, la lista inizierà da 1, ma NON da 0. 
+        }else{
+            return "far fa-star";
         }
         
      },

@@ -1,5 +1,28 @@
+*{
+    box-sizing: border-box;
+     padding: 0;
+   
+}
+
+.container{
+    margin:0  auto;
+    width:1000px;
+    border: 1px solid lightgray
+}
+.header-box{
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    padding:12px;
+
+}
+.announcement-box{
+    /* border: 2px solid lightgray;
+   */
+}
 .tabella{
     margin-top: 15px;
     list-style: none;
+    padding: 12px;
  
 }
+

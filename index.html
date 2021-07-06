@@ -10,46 +10,51 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div class="container">
+        <div id="app">
         
-                          <!-- !Milestone 1 
-         Mostriamo tutti gli annunci in una lista, con una grafica molto elementare. -->
-          <!-- Stampare tutte le offerte di lavoro con v-for (item, index) -->
-        <div v-for="(announcement, index) in jobs">
+            <!-- !Milestone 1 
+            Mostriamo tutti gli annunci in una lista, con una grafica molto elementare. -->
+            <!-- Stampare tutte le offerte di lavoro con v-for (item, index) -->
+            <div v-for="(announcement, index) in jobs">
 
-             <div>
+               <div class="announcement-box">
+                     <div class="header-box">
+
+                     <h2> {{announcement.position}}</h2>
+                     Company: {{announcement.company}}
+                     <i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i>
+                     <button @click="applyYourPreferedJob(index)">APPLY</button>
+                    
+                    </div>
+                    <ul class="tabella">
+
     
-               <i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)" ></i>
-                {{announcement.id}}) Company: {{announcement.company}}
+                        <li>
+                        Description: {{announcement.description}}
+                        </li>
+    
+                        <li>
+                            La data dell'annuncio: {{announcement.created_at}} 
+                        </li>
+    
+                        <li>
+                            Città: {{announcement.city}}
+                        </li>
+    
+                        <li>
+                            Tipo di contratto: {{announcement.contract}}
+                        </li>
+    
+    
+                    </ul>
+                    <!-- <div>
+                    <button @click="applyYourPreferedJob(index)">APPLY</button>
+                    </div> -->
+               </div>
             </div>
-            <ul class="tabella">
-            
 
-                <li> Position: {{announcement.position}}</li>
-
-                <li>
-                Description: {{announcement.description}}
-                </li>
-        
-                <li>
-                  La data dell'annuncio: {{announcement.created_at}} 
-                </li>
-
-                <li>
-                  Città: {{announcement.city}}
-                </li>
-
-                <li>
-                  Tipo di contratto: {{announcement.contract}}
-                </li>
-           
- 
-            </ul>
-            <div>
-                <button @click="applyYourPreferedJob(index)">APPLY</button>
-            </div>
-       </div>
-
+</div>
     </div>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
