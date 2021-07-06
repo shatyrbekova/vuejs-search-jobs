@@ -75,20 +75,43 @@ new Vue({
      getPreferedJob: function(index){
          
         if(this.starred.includes(index +1)){
-            return "fas fa-star"
+            return "fas fa-star";
         } 
         else {
-            return "far fa-star"
+            return "far fa-star";
         }
      },
+
+     //!Milestone 2.2
+
      chooseYourJobPrefered: function(index){
         if(!this.starred.includes(index +1 )){
-            this.starred.push(index +1)
+
+            this.starred.push(index +1) ;//aggiungere +1 perchè array di oggetti inizia                             
+            return "fas fa-star"  ;     //da zero, invece la lista o l'id in esame inizia da 1. 
+                                       //in questo modo, la lista inizierà da 1, ma NON da 0. 
         }
-        return "fas fa-star"
+        
+     },
+
+     //! Milestone 3 
+
+        // Gli annunci a cui abbiamo mandato una candidatura non mostreranno 
+        // il pulsante APPLY e si distingueranno dalle altre per colore e Badge ‘applied’.
+        // Un annuncio a cui abbiamo inviato la candidatura automaticamente 
+        // viene eliminato dalla lista starred.
+        // Anche in questo caso inseriremo l’id nell’array applied. 
+        // (come prima abbiamo fatto per lo starred)
+
+
+     applyYourPreferedJob: function (index){
+          if (this.applied.includes(index +1)){
+             
+             return  this.starred.splice(index)
+          }else if(this.starred.includes(index +1) || this.jobs.includes(index +1)) {
+             
+          }
      }
-
-
     }//methods si chiude qua
 
 

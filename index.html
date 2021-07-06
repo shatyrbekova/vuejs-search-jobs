@@ -15,7 +15,7 @@
                           <!-- !Milestone 1 
          Mostriamo tutti gli annunci in una lista, con una grafica molto elementare. -->
           <!-- Stampare tutte le offerte di lavoro con v-for (item, index) -->
-       <div v-for="(announcement, index) in jobs">
+        <div v-for="(announcement, index) in jobs">
 
              <div>
     
@@ -42,9 +42,12 @@
                 <li>
                   Tipo di contratto: {{announcement.contract}}
                 </li>
-              
+           
  
             </ul>
+            <div>
+                <button @click="applyYourPreferedJob(index)">APPLY</button>
+            </div>
        </div>
 
     </div>
