@@ -62,26 +62,34 @@ new Vue({
         starred: [1, 2, 3],
         applied: [4, 5]
         
-    },
-     //! Milestone 2
+    }, //data si chiude qua
+
+     //! Milestone 2.1
     // Identifichiamo nella lista gli annunci di lavoro
     //  preferiti, con un simbolo che si attiva/colora 
     //  solo se quell’annuncio è tra i preferiti (per esempio, una stella).
 
-   //* Creare una funzione con if ed else, inserendo a loro interno l'icona di star 
+   //* Creare una funzione con if ed else, inserendo a loro interno l'icona di star (come ho fatto con dispari e par)
     methods:{
       
      getPreferedJob: function(index){
          
         if(this.starred.includes(index +1)){
             return "fas fa-star"
-        } else {
+        } 
+        else {
             return "far fa-star"
         }
+     },
+     chooseYourJobPrefered: function(index){
+        if(!this.starred.includes(index +1 )){
+            this.starred.push(index +1)
+        }
+        return "fas fa-star"
      }
 
 
-    }
+    }//methods si chiude qua
 
 
 })

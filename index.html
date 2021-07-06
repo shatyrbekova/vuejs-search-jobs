@@ -18,8 +18,9 @@
        <div v-for="(announcement, index) in jobs">
 
              <div>
-               <i :class="getPreferedJob(index)"></i>
-              {{announcement.id}}) Company: {{announcement.company}}
+    
+               <i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)" ></i>
+                {{announcement.id}}) Company: {{announcement.company}}
             </div>
             <ul class="tabella">
             
