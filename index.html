@@ -7,34 +7,43 @@
     <title>Web App Search App</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-
-       <div v-for="(announcement, index) in jobs">
-            <div class="tabella">
-
-                <div>
-                    {{announcement.id}}) Company: {{announcement.company}}, Position: {{announcement.position}}
-                </div>
-
-                <div>
-                Description: {{announcement.description}}
-                </div>
         
-                <div>
-                  La data dell'annuncio: {{announcement.created_at}} 
-                </div>
+                          <!-- !Milestone 1 
+         Mostriamo tutti gli annunci in una lista, con una grafica molto elementare. -->
+          <!-- Stampare tutte le offerte di lavoro con v-for (item, index) -->
+       <div v-for="(announcement, index) in jobs">
 
-                <div>
-                  Città: {{announcement.city}}
-                </div>
-
-                <div>
-                  Tipo di contratto: {{announcement.contract}}
-                </div>
- 
+             <div>
+               <i :class="getPreferedJob(index)"></i>
+              {{announcement.id}}) Company: {{announcement.company}}
             </div>
+            <ul class="tabella">
+            
+
+                <li> Position: {{announcement.position}}</li>
+
+                <li>
+                Description: {{announcement.description}}
+                </li>
+        
+                <li>
+                  La data dell'annuncio: {{announcement.created_at}} 
+                </li>
+
+                <li>
+                  Città: {{announcement.city}}
+                </li>
+
+                <li>
+                  Tipo di contratto: {{announcement.contract}}
+                </li>
+              
+ 
+            </ul>
        </div>
 
     </div>
