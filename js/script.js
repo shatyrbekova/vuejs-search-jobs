@@ -88,11 +88,11 @@ new Vue({
         if(!this.starred.includes(index +1 )){
 
             this.starred.push(index +1) ;//aggiungere +1 perchè array di oggetti inizia                             
-            return "fas fa-star"  ;     //da zero, invece la lista o l'id in esame inizia da 1. 
-                                       //in questo modo, la lista inizierà da 1, ma NON da 0. 
+                                        //da zero, invece la lista o l'id in esame inizia da 1. 
+                                        //in questo modo, la lista inizierà da 1, ma NON da 0. 
         }else{
-            this.starred.splice(index)
-            return "far fa-star";
+            const i = this.starred.indexOf(index +1)
+            this.starred.splice(i, 1)
         }
         
      },
@@ -108,12 +108,14 @@ new Vue({
 
 
      applyYourPreferedJob: function (index){
-          if (this.applied.includes(index +1)){
-             
-             return  this.starred.splice(index)
-          }else if(this.starred.includes(index +1) || this.jobs.includes(index +1)) {
-             
+          if (!this.applied.includes(index +1)){
+              this.applied.push(index +1)
+              const i = this.starred.indexOf(index +1)
+              this.starred.splice(i, 1)
           }
+        //   else if(this.starred.includes(index +1) || this.jobs.includes(index +1)) {
+             
+        //   }
      }
     }//methods si chiude qua
 

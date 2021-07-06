@@ -25,7 +25,6 @@
                      Company: {{announcement.company}}
                      <div>
                         <i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i>
-                        <button @click="applyYourPreferedJob(index)">APPLY</button>
                      </div>
                     
                     
@@ -51,9 +50,10 @@
     
     
                     </ul>
-                    <!-- <div>
-                    <button @click="applyYourPreferedJob(index)">APPLY</button>
-                    </div> -->
+                    <div v-if="!applied.includes(index +1)">
+                      <button @click="applyYourPreferedJob(index)">APPLY</button>
+                    </div>
+                    <div v-if="applied.includes(index +1)">Applied</div>
                </div>
             </div>
 
