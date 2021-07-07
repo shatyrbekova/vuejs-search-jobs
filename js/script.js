@@ -9,61 +9,74 @@ new Vue({
         jobs: [   
             {
               id: 1,
-              company: 'Perferendis',
-              position: 'Developer',
-              description: ' Lorem ipsum dolor sit amet consectetur adi Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
+              company: 'Start for Win ',
+              position: 'Backend Web Developer',
+              description: 'Ottima padronanza di MySQL/MariaDB, Sviluppo di siti ed applicazioni web PHP / Wordpress ',
               created_at: '5/22/2021',
               logo: 'logo.jpg',
-              city: 'Roma',
-              contract: 'Full Time'
+              city: 'Casoria, Campania',
+              contract: '€1.000 al mese - Temporaneamente da remoto',
+              esperienza: 'Sviluppatore PHP/Wordpress: 1 anno (Obbligatorio)'
             },
             {
                 id: 2,
-                company: 'Perferendis',
-                position: 'Shop Assistant',
+                company: 'Key To Business Srl',
+                position: 'Junior Front end Developer',
                 description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, ?',
                 created_at: '5/22/2021',
                 logo: 'logo.jpg',
-                city: 'Roma',
-                contract: 'Full Time'
+                city: 'Torino, Piemonte ',
+                contract: '€30.000 all\'anno - Da remoto - Tempo pieno',
+                esperienza: 'Sviluppatore: 1 anno (Opzionale)'
               },
               {
                 id: 3,
-                company: 'Perferendis',
+                company: 'Intrè',
                 position: 'Developer Java',
                 description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto?',
                 created_at: '5/22/2021',
                 logo: 'logo.jpg',
-                city: 'Roma',
-                contract: 'Full Time'
+                city: 'Provincia di Monza e della Brianza, Lombardia',
+                contract: 'Tempo pieno, Tirocinio formativo/Stage - Temporaneamente da remoto',
+                esperienza: 'Conoscenza base di Java, SQL, Node.js'
               },
               {
                 id: 4,
-                company: 'Perferendis',
+                company: 'We-Unit Group S.p.A',
                 position: 'Developer PHP',
                 description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iust?',
                 created_at: '5/22/2021',
                 logo: 'logo.jpg',
-                city: 'Roma',
-                contract: 'Full Time'
+                city: ' Villanova d\'Albenga, Liguria',
+                contract: '€1.500 - €2.000 al mese - Tempo indeterminato',
+                esperienza: 'Conoscenza base di Java, SQL, Node.js'
               },
               {
                 id: 5,
-                company: 'Perferendis',
+                company: 'Bewe srl',
                 position: 'Project Manager',
                 description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. ?',
                 created_at: '5/22/2021',
                 logo: 'logo.jpg',
-                city: 'Roma',
-                contract: 'Full Time'
+                city: 'Milano, Lombardia',
+                contract: 'Tempo pieno, Part-time - Da remoto',
+                esperienza: 'Sviluppatore: 1 anno (Preferenziale)'
               },
            
         ],
         starred: [1, 2, 3],
-        applied: [4, 5]
+        applied: [4, 5],
+        alert: false,
         
     }, //data si chiude qua
+    computed: {
+      filteredApplied: function(){
+        return this.applied.filter(index =>{
 
+          return index.id;
+        })
+      }
+    },
      //! Milestone 2.1
     // Identifichiamo nella lista gli annunci di lavoro
     //  preferiti, con un simbolo che si attiva/colora 
@@ -107,17 +120,30 @@ new Vue({
         // (come prima abbiamo fatto per lo starred)
 
 
-     applyYourPreferedJob: function (index){
+     applyYourPreferedJob: function(index){
           if (!this.applied.includes(index +1)){
               this.applied.push(index +1)
               const i = this.starred.indexOf(index +1)
               this.starred.splice(i, 1)
-          }
-        //   else if(this.starred.includes(index +1) || this.jobs.includes(index +1)) {
-             
-        //   }
-     }
-    }//methods si chiude qua
+          };
+        
+           
+         setTimeout(()=>{
+               alert('Candidatura inviata');
+   
+          }, 1000);
 
+         //? non funziona, poichè  ripete il ciclo for.
+        //   setTimeout(()=>{
+        //     this.alert=false;
+        //   }, 3000)
+        
+     },
+       
+    
+
+
+    }//!methods si chiude qua
+   
 
 })

@@ -1,39 +1,45 @@
-*{
+/* *{
     box-sizing: border-box;
      padding: 0;
    
-}
+} */
 
-.container{
-    margin:0  auto;
-    width:1000px;
+.containerJobOffers{
+    margin: 0 auto;
+    width:1200px;
     border: 1px solid lightgray
 }
 .header-box{
     border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
-    padding:12px;
+    padding-left: 15px;
 
 }
 .react-box{
     display: flex;
     flex-direction: row;
     cursor: pointer;
-   
+    margin-bottom: 20px;
+}
+.announcement-box{
+
+}
+p{
+    font-size: 18px;
 }
 .icon-box{
     margin-left: 15px;
-    height: 40px;
-    line-height: 40px;
+    height: 50px;
+    line-height: 50px;
     width: 30px;
     border-radius: 10px;
     text-align: center;
     background: rgb(236, 232, 232);
 }
-button{
+.applied button, .btn-apply button{
     cursor: pointer;
-    height: 40px;
-    width:150px;
+    height: 50px;
+    width:160px;
     border-radius:12px;
     color: white;
     box-shadow: none;
@@ -48,7 +54,12 @@ button{
 .tabella{
     margin-top: 15px;
     list-style: none;
-    padding: 12px;
- 
+     padding-left: 15px;
+  
 }
-
+.applied-notification{
+   background-color: red;
+   position: relative;
+   bottom:100px;
+   left:50%;
+}

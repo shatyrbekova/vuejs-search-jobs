@@ -5,63 +5,102 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web App Search App</title>
+    
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div id="app">
-        
-            <!-- !Milestone 1 
-            Mostriamo tutti gli annunci in una lista, con una grafica molto elementare. -->
-            <!-- Stampare tutte le offerte di lavoro con v-for (item, index) -->
-            <div v-for="(announcement, index) in jobs">
-
-               <div class="announcement-box">
-                     <div class="header-box">
-
-                     <h2> {{announcement.position}}</h2>
-                     Company: {{announcement.company}}
-                     
-                      <div class="react-box">
-                        <div  v-if="!applied.includes(index +1)" class="btn-apply">
-                            <button @click="applyYourPreferedJob(index)">Candidati facilmente</button>
-                          </div>
-                          <div v-if="applied.includes(index +1)" class="applied">
-                              <button>Candidatura inviata</button>
-                          </div>
-                          <div class="icon-box"><i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i> </div> 
-                      </div>
-                      
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-5 p-0 ">
+                <div class="row">
+                    <h3>Preferiti</h3>
+                    <div class="col-12 p-0" v-for="(announcement, index) in jobs" v-if="starred.includes(announcement.id)">
+                        <div class="announcement-box">
+                            <div class="header-box">
+                                <h4>{{announcement.position}}</h4>
+                                <p> {{announcement.company}} -  {{announcement.city}}</p>
+                                <p>{{announcement.contract}}</p>
+                                <div class="icon-box"><i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i> </div> 
+                            </div>
+                        </div>
+                    </div> 
+                    <h3>Candidature inviate</h3>
+                    <div class="col-12 p-0" v-for="(announcement, index) in jobs" v-if="applied.includes(announcement.id)">
+                        <div class="announcement-box">
+                            <div class="header-box">
+                            <h4>{{announcement.position}}</h4>
+                                <p> {{announcement.company}} -  {{announcement.city}}</p>
+                                <p>{{announcement.contract}}</p>
+                                
+                            </div>
+                        </div>
                     </div>
-                    <ul class="tabella">
+                </div>
+                </div>
+                <div class="containerJobOffersv col-7">
+                
+            
+    
+                    <!-- !Milestone 1 
+                    Mostriamo tutti gli annunci in una lista, con una grafica molto elementare. -->
+                    <!-- Stampare tutte le offerte di lavoro con v-for (item, index) -->
+                    <div v-for="(announcement, index) in jobs">
+        
+                        <div class="announcement-box">
+                            <div class="header-box">
+        
+                            <h2> {{announcement.position}}</h2>
+                            <p> {{announcement.company}} -  {{announcement.city}}</p>
+                            <p>{{announcement.contract}}</p>
+                            <img :src="announcement.logo" alt="">
+                            <div class="react-box">
+                                <div  v-if="!applied.includes(index +1)" class="btn-apply">
+                                    <button @click="applyYourPreferedJob(index)">Candidati facilmente</button>
+                                </div>
+                                <div v-if="applied.includes(index +1)" class="applied" >
+                                    <button>Candidatura inviata</button>
+                                </div>
 
-    
-                        <li>
-                        Description: {{announcement.description}}
-                        </li>
-    
-                        <li>
-                            La data dell'annuncio: {{announcement.created_at}} 
-                        </li>
-    
-                        <li>
-                            Città: {{announcement.city}}
-                        </li>
-    
-                        <li>
-                            Tipo di contratto: {{announcement.contract}}
-                        </li>
-    
-    
-                    </ul>
+                                <div class="icon-box"><i :class="getPreferedJob(index)" @click="chooseYourJobPrefered(index)"  ></i> </div> 
+                                <!--!!TODO <button v-if="alert" class="applied-notification"> CANDIDATURA INVIATA</button> -->
+                            </div>
+                            
+                            </div>
+                            <ul class="tabella">
+        
+            
+                                <li>
+                                <p> <strong>   Description: </strong>{{announcement.description}}</p>
+                                </li>
+            
+                                <li>
+                                <p><strong>Data di pubblicazione: </strong> {{announcement.created_at}} </p>  
+                                </li>
+            
+                                <li>
+                                    <p><strong>Esperienza</strong>  {{announcement.esperienza}} </p>
+                                </li>
+                                <li>
+                                <p> <strong>Tipo di contratto: </strong>  {{announcement.contract}}</p>
+                                </li>
+            
+            
+                            </ul>
+                            
+                         </div>
                     
-               </div>
+    
+                     </div>
+                 </div>
+              </div>
             </div>
-
-</div>
+            
+        </div>
     </div>
-    <script type="text/javascript" src="./js/script.js"></script>
+       <script type="text/javascript" src="./js/script.js"></script>
 </body>
 </html>
